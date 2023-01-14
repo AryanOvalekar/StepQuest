@@ -6,16 +6,33 @@ const UserSchema = new mongoose.Schema({
 
     username: {
         type: String,
-        required: true,
+        required: false,
     },
     email: {
         type: String,
-        required: true,
+        required: false,
     },
     password: {
         type: String,
-        required: true,
-    }
+        required: false,
+    },
+    currentQuestID: {
+        type: String,
+        required: false
+    },
+    currentQuestObjective: {
+        type: Number,
+        required: false
+    },
+    currentQuestObjectiveProgress: {
+        type: Number,
+        required: false
+    },
+    questTimeStarted: {
+        type: Date,
+        required: false
+    },
+
 });
 
 userDb = mongoose.createConnection(mongodbURL, {useNewUrlParser:true});

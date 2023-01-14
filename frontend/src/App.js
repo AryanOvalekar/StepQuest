@@ -8,6 +8,7 @@ import NavBar from './Components/Navbar/NavBar';
 import LoginFailed from './Components/LoginRegister/LoginFailed';
 import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
 import Profile from './Components/Profile/Profile';
+import QuestDashboard from './Components/QuestDashboard/QuestDashboard';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Route path="/registration-failed" element={ <RegistrationFailed/> }/>
 
       <Route path="/profile" element={ <Profile /> } />
+      <Route path="/quests" element={ <QuestDashboard/> }/>
 
     </Routes>
     </Router>

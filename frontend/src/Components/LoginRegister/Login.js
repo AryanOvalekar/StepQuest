@@ -13,12 +13,13 @@ const Login = ( ) => {
     const submitLogin = (event) => {
         event.preventDefault();
         
-        axios.post(SERVER_URL, {
+        axios.post(SERVER_URL+"/login", {
             password:password,
             email:email,
         })
         .then(response => { 
             if(response.data.length!=0){
+
                 const id = response.data.shift();
                 window.localStorage.setItem('token', id._id);
                 nav("/")
