@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export const LoginFailed = () => {
   return (
     <div>
-        <h1>Login Failed</h1>
+        <h1 className="login-header">Login Failed</h1>
         <NavLink to="/login">
                 <li className="Nav__item">
                     Retry Login
