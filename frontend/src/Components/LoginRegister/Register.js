@@ -19,7 +19,7 @@ const Register = () => {
                         </div>
                         </div>
                         <div class="action">
-                            <button>Register</button>
+                            <button className="login-button">Register</button>
                         </div>
                 </form>
             </div>
