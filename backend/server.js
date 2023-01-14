@@ -28,6 +28,15 @@ app.post("/login", async (req, res) =>{  //check if an account exists
     })
 })
 
+app.post ('/register', async(req, res) =>{
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const user = new UserModel({username: username, password: password, email: email})
+    await user.save();
+    res.send("Registered New User");
+})
+
 app.listen(3001, ()=> {
     console.log("LOADED")
   });
