@@ -60,7 +60,13 @@ const previewimg = "https://cdn.discordapp.com/attachments/1063590170319917127/1
 const difficulty = "Hard"
 const length = "1 Day"
 
-const Quest = new QuestModel({title: title, description: description, previewimg: previewimg, difficulty: difficulty, length: length})
+const img = "https://cdn.discordapp.com/attachments/1063590170319917127/1063614994031333478/jared-erondu-LoMs1_wq3tU-unsplash.jpg"
+const description2 = "you have reached a hill..."
+const criteria = 1000
+const criteriaType = "steps"
+const objective = {img: img, description: description2, criteria: criteria, criteriaType:criteriaType}
+
+const Quest = new QuestModel({title: title, description: description, previewimg: previewimg, difficulty: difficulty, length: length, objectives: [objective]})
 //Quest.save();
 
 app.listen(3001, ()=> {

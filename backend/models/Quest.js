@@ -27,7 +27,25 @@ const QuestSchema = new mongoose.Schema({
     color: {
         type: String,
         required: false,
-    }
+    },
+    objectives: [{
+        img: {
+            type: String,
+            required: false
+        },
+        description: {
+            type: String,
+            required: false
+        },
+        criteriaType: {
+            type: String,
+            required: false
+        },
+        criteria: {
+            type: Number,
+            required: false
+        }
+    }]
 
 });
 
