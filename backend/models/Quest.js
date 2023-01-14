@@ -28,6 +28,18 @@ const QuestSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    onestar: {
+        type: Number,
+        required: false,
+    },
+    twostar: {
+        type: Number,
+        required: false,
+    },
+    threestar: {
+        type: Number,
+        required: false,
+    },
     objectives: [{
         img: {
             type: String,

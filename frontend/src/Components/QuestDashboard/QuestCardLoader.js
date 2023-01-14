@@ -6,9 +6,7 @@ const QuestCardLoader = () => {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const [quests, setQuests] = useState([]);
 
-
     const fetchquests = () => {
-        console.log("click")
         axios.post(SERVER_URL+"/fetchquests").then(response => { 
             if(response.data.length!=0){
                 setQuests(response.data)
@@ -22,11 +20,10 @@ const QuestCardLoader = () => {
 
     return (
         <div className='cardholder'>
-            <div>
                 {quests.map((quest, index) =>
-                    <QuestCard title = {quest.title} color = {quest.color} imageURL = {quest.previewimg} difficulty = {quest.difficulty} length = {quest.length} description = {quest.description} />
+                    <QuestCard id = {quest._id} title = {quest.title} color = {quest.color} imageURL = {quest.previewimg} difficulty = {quest.difficulty} length = {quest.length} description = {quest.description} onestar = {quest.onestar} twostar = {quest.twostar} threestar = {quest.threestar}/>
                 )}
-            </div>
+
         </div>
     )
 }
