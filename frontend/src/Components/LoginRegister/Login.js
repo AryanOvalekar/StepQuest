@@ -13,7 +13,7 @@ const Login = ( ) => {
     const submitLogin = (event) => {
         event.preventDefault();
         
-        axios.post("http://localhost:3001/login", {
+        axios.post(SERVER_URL, {
             password:password,
             email:email,
         })
