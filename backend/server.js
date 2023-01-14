@@ -57,8 +57,16 @@ app.post("/fetchquests", async (req, res) =>{
 app.post ('/addquest', async(req, res) =>{
     const userID = req.body.userID;
     const questID = req.body.questID;
-    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: new Date()})
+
+    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: new Date(), currentQuestObjective: 0, currentQuestObjectiveProgress: 0})
 })
+
+app.post("/getqueststatus", async (req, res)=>{ // fetching data from frontend
+    const userID = req.body.userID;
+    UserModel.findById(userID, (err, result)=>{
+        res.send(result)
+    })
+}); 
 
 const title = "Journey through the Himalayas"
 const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
