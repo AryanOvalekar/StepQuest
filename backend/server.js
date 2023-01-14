@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(cors())
 
 const UserModel = require("./models/User");
+const QuestModel = require("./models/Quest");
 
 
 
@@ -36,6 +37,31 @@ app.post ('/register', async(req, res) =>{
     await user.save();
     res.send("Registered New User");
 })
+
+app.post("/fetchquests", async (req, res) =>{  //check if an account exists
+    const email = req.body.email;
+    const password = req.body.password;
+    QuestModel.find((err, result)=>{
+        
+        if(err){    
+            res.send(err);
+        }
+        if(result){
+        res.send(result);}
+        else{   
+            res.send("Cannot Send Quests")
+        }
+    })
+})
+
+const title = "Journey through the Himalayas"
+const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+const previewimg = "https://cdn.discordapp.com/attachments/1063590170319917127/1063614979716157470/samsommer-vddccTqwal8-unsplash.jpg"
+const difficulty = "Hard"
+const length = "1 Day"
+
+const Quest = new QuestModel({title: title, description: description, previewimg: previewimg, difficulty: difficulty, length: length})
+//Quest.save();
 
 app.listen(3001, ()=> {
     console.log("LOADED")

@@ -1,16 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import QuestCard from './QuestCard'
+import axios from "axios"
 
 const QuestCardLoader = () => {
-  return (
-    <div className='cardholder'>
-        <div>
-            <QuestCard title = {"Journey through the Himalayas"} color = {"#228eecbf"} imageURL = {"https://cdn.discordapp.com/attachments/1063590170319917127/1063614979716157470/samsommer-vddccTqwal8-unsplash.jpg"} difficulty = {"Hard"} length = {"1 Day"} description = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"} />
-            <QuestCard title = {"Journey through the Himalayas"} color = {"#228eecbf"} imageURL = {"https://cdn.discordapp.com/attachments/1063590170319917127/1063614979716157470/samsommer-vddccTqwal8-unsplash.jpg"} difficulty = {"Hard"} length = {"1 Day"} description = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"} />
-            <QuestCard title = {"Journey through the Himalayas"} color = {"#228eecbf"} imageURL = {"https://cdn.discordapp.com/attachments/1063590170319917127/1063614979716157470/samsommer-vddccTqwal8-unsplash.jpg"} difficulty = {"Hard"} length = {"1 Day"} description = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"} />
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    const [quests, setQuests] = useState([]);
+
+
+    const fetchquests = () => {
+        console.log("click")
+        axios.post(SERVER_URL+"/fetchquests").then(response => { 
+            if(response.data.length!=0){
+                setQuests(response.data)
+            }
+            else{
+                console.log("Couldn't fetch quests!")
+            }});
+    }
+
+    useEffect(() => fetchquests(), []);
+
+    return (
+        <div className='cardholder'>
+            <div>
+                {quests.map((quest, index) =>
+                    <QuestCard title = {quest.title} color = {quest.color} imageURL = {quest.previewimg} difficulty = {quest.difficulty} length = {quest.length} description = {quest.description} />
+                )}
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default QuestCardLoader
