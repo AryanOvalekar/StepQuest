@@ -3,7 +3,7 @@ import "./LoginRegister.css"
 const Login = () => {  
 
     return (
-        <body>
+        <body className="login-body">
             <div class="login-form">
                 <form>
                     <h1>LOGIN</h1>
