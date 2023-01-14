@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import QuestDisplay from './QuestDisplay'
 import axios from "axios"
+import QuestProgress from './QuestProgress'
 
 
 const QuestCompletion = ( props ) => {
@@ -10,6 +11,8 @@ const QuestCompletion = ( props ) => {
   
   const [questData, setQuestData] = useState();
   const [isLoading, setLoading] = useState(true);
+
+  const [progress, setProgress] = useState(props.questData.currentQuestObjectiveProgress);
 
   const getQuestDetails = () => {
     axios.post(SERVER_URL+"/getquestdetails", {
@@ -29,6 +32,7 @@ const QuestCompletion = ( props ) => {
   return (
     <div>
       <QuestDisplay description = {questData[questObjective].description} imageURL = {questData[questObjective].img}/>
+      <QuestProgress progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
     </div>
   )
 }
