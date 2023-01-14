@@ -3,8 +3,10 @@ import { useState } from 'react';
 
 const Register = () => {  
 
-  const [username, setUsername] = useState("");  
-  const [email, setEmail] = useState("");
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
+    const [username, setUsername] = useState("");  
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submitLogin = (event) => {

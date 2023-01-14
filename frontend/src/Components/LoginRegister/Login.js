@@ -1,15 +1,31 @@
 import React from 'react'
+import axios from "axios"
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {  
+    let nav = useNavigate();
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submitLogin = (event) => {
-        console.log("Logged in!")
-
-        //ADD AXIOS METHOD
+        event.preventDefault();
+        
+        axios.post("http://localhost:3001/login", {
+            password:password,
+            email:email,
+        })
+        .then(response => { 
+            if(response.data.length!=0){
+                const id = response.data.shift();
+                window.localStorage.setItem('token', id._id);
+                nav("/")   
+            }
+            else{
+                nav("/login-failed")
+            }});
     }
 
     return (
