@@ -1,5 +1,10 @@
+import React from 'react'
+import { useState } from 'react';
 
 const Login = () => {  
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     return (
         <div class="login-form">
@@ -12,7 +17,6 @@ const Login = () => {
                 <div class="input-field">
                     <input type="password" placeholder="Password" autocomplete="new-password"></input>
                 </div>
-                <a href="#" class="link">Forgot Your Password?</a>
                 </div>
                 <div class="action">
                 <button>Register</button>
