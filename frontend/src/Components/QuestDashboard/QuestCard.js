@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import "./QuestCard.css"
 import Star from './Star';
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const QuestCard = ( props ) => {
+    let nav = useNavigate();
     const [expand, setExpand] = useState(false);
     const [height, setHeight] = useState("140px");
 
@@ -40,6 +42,8 @@ const QuestCard = ( props ) => {
             userID: token,
             questID: id,
         })
+
+        nav("/tutorial")
     }
 
     return (

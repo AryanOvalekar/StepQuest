@@ -9,6 +9,8 @@ import LoginFailed from './Components/LoginRegister/LoginFailed';
 import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
 import Profile from './Components/Profile/Profile';
 import QuestDashboard from './Components/QuestDashboard/QuestDashboard';
+import QuestTutorial from './Components/QuestCompletion/QuestTutorial';
+import About from './Components/Homepage/About';
 
 function App() {
 
@@ -28,6 +30,10 @@ function App() {
 
       <Route path="/profile" element={ <Profile /> } />
       <Route path="/quests" element={ <QuestDashboard/> }/>
+
+      <Route path="/tutorial" element={ <QuestTutorial/> }/>
+
+      <Route path="/about" element={ <About/> }/>
 
     </Routes>
     </Router>
