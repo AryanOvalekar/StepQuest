@@ -26,7 +26,7 @@ const QuestCard = ( props ) => {
     const onClick = () => {
         setExpand(!expand)
         if (height === "140px"){
-            setHeight("340px");
+            setHeight("280px");
         }
         else{
             setHeight("140px");

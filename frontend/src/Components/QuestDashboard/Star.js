@@ -9,19 +9,19 @@ const Star = (props) => {
   return (
     <div>
         {(threestar===1) ? (
-            <h3>⭐⭐⭐1 Hour</h3>
+            <h3>⭐⭐⭐ 1 Hour</h3>
         ) : (
-            <h3>⭐⭐⭐{threestar} Hours</h3>
+            <h3>⭐⭐⭐ {threestar} Hours</h3>
         )}
         {(twostar===1) ? (
-            <h3>⭐⭐1 Hour</h3>
+            <h3>⭐⭐ 1 Hour</h3>
         ) : (
-            <h3>⭐⭐{twostar} Hours</h3>
+            <h3>⭐⭐ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{twostar} Hours</h3>
         )}
         {(onestar===1) ? (
-            <h3>⭐1 Hour</h3>
+            <h3>⭐ 1 Hour</h3>
         ) : (
-            <h3>⭐{onestar} Hours</h3>
+            <h3>⭐ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{onestar} Hours</h3>
         )}
     </div>
   )
