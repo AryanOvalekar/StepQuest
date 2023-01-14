@@ -1,38 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+.NavBar{
+  position:absolute;
+  width: 100%;
+}
+
 .Nav__item {
-    color: #000000;
-    font-family: "Inter", sans-serif;
-    font-size: 30;
-    font-weight: bold;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 30;
+  font-weight: bold;
+  display: inline;
+  float: center;
+  padding-left: 2%;
+  padding-right: 2%;
+    
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 20;
-    overflow: hidden;
-    padding-top: 35px;
-    padding-bottom: 35px;
-    text-align: center;
-    align-items: center;
-    display: table;
-    margin: 0 auto;
-    background-color: aliceblue;
-    opacity: .75;
-    border-radius: 0px 0px 10px 10px;
-  }
-  
-  li {
-    float: left;
-    padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
-  }
-  
-  li a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
+  list-style-type: none;
+  padding-top: 25px;
+  display:  inline-block;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}

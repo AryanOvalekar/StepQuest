@@ -6,7 +6,7 @@ const NavBar = () => {
     
 const userToken = window.localStorage.getItem("token")
 if (userToken === null){ return (
-    <div>
+    <div className="NavBar">
         <ul>
             <NavLink to="/">
                 <li className="Nav__item">
