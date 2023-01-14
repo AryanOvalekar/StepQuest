@@ -54,7 +54,7 @@ const QuestCard = ( props ) => {
                     <p className='carddescription'>{description}</p>
                 {expand ? (
                     <div>
-                    <Star props={props}></Star>
+                    <Star threestar={threestar} twostar={twostar} onestar={onestar}></Star>
                     <div className="button-div">
                     <button className="quest-button" style={{backgroundColor: color2}} onClick={selectQuest}>Select Quest</button>
                     </div>
