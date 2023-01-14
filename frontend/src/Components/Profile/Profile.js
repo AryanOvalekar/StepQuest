@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Image from 'react'
 import "./Profile.css"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    let nav = useNavigate();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -19,6 +21,12 @@ const Profile = () => {
         });
     }
 
+    const signOut = () => {
+      window.localStorage.removeItem('token')
+      nav("/")
+      window.location.reload(false);
+    }
+
     useEffect(() => getProfile(), []);
 
   return (
@@ -29,6 +37,7 @@ const Profile = () => {
                     <u><p className="email-text">{email}</p></u>
                     <div className="button-div">
                         <button className='google-button'>Link to Google</button>
+                        <button className='google-button' onClick={signOut}>Sign Out</button>
                     </div>
                     <div className='flavor-text'>
                         <b>
