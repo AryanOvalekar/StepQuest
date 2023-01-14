@@ -1,30 +1,33 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import "./NavBar.css"
 
 const NavBar = () => {
     
-    const userToken = window.localStorage.getItem("token")
-
+const userToken = window.localStorage.getItem("token")
 if (userToken === null){ return (
+    <div>
         <ul>
             <NavLink to="/">
                 <li className="Nav__item">
-                    Home
+                    HOME
                 </li>
             </NavLink>
             <NavLink to="/login">
                 <li className="Nav__item">
-                    Login
+                    LOGIN
                 </li>
             </NavLink>
             <NavLink to="/register">
                 <li className="Nav__item">
-                    Register
+                    REGISTER
                 </li>
             </NavLink>
         </ul>
+    </div>
     )}
 else{ return (
+    <div>
         <ul>
             <NavLink to="/">
                 <li className="Nav__item">
@@ -42,6 +45,7 @@ else{ return (
                 </li>
             </NavLink>
         </ul>
+    </div>
     )}
 }
 
