@@ -5,6 +5,7 @@ import axios from "axios"
 
 const QuestDashboard = () => {
   const [questSelected, setQuestSelected] = useState(false);
+  const [questData, setQuestData] = useState();
   const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
   const getQuestStatus = () => {
@@ -12,7 +13,9 @@ const QuestDashboard = () => {
       userID: window.localStorage.getItem("token")
     }).then(response => {
       const state = (response.data.currentQuestID!=null&&response.data.currentQuestID!=undefined)
+      const info = response.data
       setQuestSelected(state)
+      setQuestData(info)
     });
   }
 
@@ -23,7 +26,7 @@ const QuestDashboard = () => {
       {!questSelected ? (
         <QuestCardLoader/>
       ) : (
-        <QuestCompletion/>
+        <QuestCompletion questData = {questData}/>
       )}
     </div>
   )
