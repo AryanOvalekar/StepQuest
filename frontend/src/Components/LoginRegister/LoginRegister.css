@@ -10,7 +10,7 @@
 }
 
 .login-form {
-    background-color: hsla(208, 100%, 97%, 0.75);
+    background-color: hsla(208, 100%, 97%, 0.6);
     align-items: center;
     text-align: center;
     border-radius: 40px;
@@ -38,6 +38,8 @@
   opacity: 1;
   margin: auto;
   display: block;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
 }
 
 .input-field {
@@ -48,17 +50,23 @@
 .login-header {
   padding-top: 50px;
   font-family: "Inter", sans-serif;
-  letter-spacing: 4px;
 }
 
 .login-element {
   border: 0;
   font-family: "Inter", sans-serif;
-  transition: border-color 0.5s;
   outline: none;
   background: none;
 }
 
-.login-element:focus {
-  border-color: #EE953B;
+.exclamation-login {
+  background: linear-gradient(to bottom, #C97728 0%, #3B2C1F 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 70px;
+}
+
+.failed-button {
+  padding-top: 45px;
 }

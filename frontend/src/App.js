@@ -7,6 +7,7 @@ import Register from './Components/LoginRegister/Register';
 import NavBar from './Components/Navbar/NavBar';
 import LoginFailed from './Components/LoginRegister/LoginFailed';
 import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
+import Profile from './Components/Profile/Profile';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
 
       <Route path="/register" element={ <Register/> }/>
       <Route path="/registration-failed" element={ <RegistrationFailed/> }/>
+
+      <Route path="/profile" element={ <Profile /> } />
 
     </Routes>
     </Router>
