@@ -13,8 +13,8 @@
 }
 
 .allign {
-    width: 1000px;
-    margin: 0 0 0 -500px;
+    width: 490px;
+    margin: 0 0 0 -245px;
     position: absolute;
     left: 50%;
     top: 20%;
@@ -24,13 +24,14 @@
 
 .title.a{
     font-family: "Inter", sans-serif;
-    
+    float: left;
     font-weight: 600;
-    color: #A95ED3
+    color: #000000
 }
 
 .title.b{
     font-family: "Inter", sans-serif;
+    float: right;
     font-weight: 600;
-    color: #000000
+    color: #A95ED3
 }

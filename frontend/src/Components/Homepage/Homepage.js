@@ -6,8 +6,8 @@ const Homepage = () => {
     <body className="homepage-body">
       <div className='group'>
         <div className='allign'>
-        <h1 className='title a'>ADVENTURE</h1>
-        <h1 className='title b'>SOMETHING</h1>
+        <h1 className='title a'>STEP</h1>
+        <h1 className='title b'>QUEST</h1>
         </div>
         </div>
     </body>
