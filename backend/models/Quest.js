@@ -28,6 +28,14 @@ const QuestSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    color2: {
+        type: String,
+        required: false,
+    },
+    color3: {
+        type: String,
+        required: false,
+    },
     onestar: {
         type: Number,
         required: false,

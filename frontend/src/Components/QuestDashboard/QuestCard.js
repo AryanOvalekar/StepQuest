@@ -5,7 +5,7 @@ import axios from "axios"
 
 const QuestCard = ( props ) => {
     const [expand, setExpand] = useState(false);
-    const [height, setHeight] = useState("150px");
+    const [height, setHeight] = useState("140px");
 
     const id = props.id;
     const title = props.title;
@@ -14,6 +14,8 @@ const QuestCard = ( props ) => {
     const description = props.description;
     const imageURL = props.imageURL;
     const color = props.color
+    const color2 = props.color2
+    const color3 = props.color3
     const onestar = props.onestar
     const twostar = props.twostar
     const threestar = props.threestar
@@ -23,11 +25,11 @@ const QuestCard = ( props ) => {
 
     const onClick = () => {
         setExpand(!expand)
-        if (height === "150px"){
-            setHeight("200px");
+        if (height === "140px"){
+            setHeight("280px");
         }
         else{
-            setHeight("150px");
+            setHeight("140px");
         }
     }
 
@@ -41,19 +43,21 @@ const QuestCard = ( props ) => {
     }
 
     return (
-        <div onClick={onClick} className='cardbody' style={{backgroundColor: color, height: height}}>
+        <div onClick={onClick} className='cardbody' style={{color: color3, backgroundColor: color, height: height}}>
             <img className='cardimg'src={imageURL}/>
             <div className='cardcontent'>
-                <h1 className='cardtitle'>{title}</h1>
-                <h3 className='cardsubtitle'>Difficulty: {difficulty}</h3>
-                <h3 className='cardsubtitle'>Length: {length}</h3>
-                <p className='carddescription'>{description}</p>
+                <div className="main-info">
+                    <h2 className='cardtitle'>{title}</h2>
+                    <h3 className='cardsubtitle'>Difficulty: {difficulty}</h3>
+                    <h3 className='cardsubtitle'>Length: {length}</h3>
+                </div>
+                    <p className='carddescription'>{description}</p>
                 {expand ? (
                     <div>
-                    <Star time = {threestar}></Star>
-                    <Star time = {twostar}></Star>
-                    <Star time = {onestar}></Star>
-                    <button onClick={selectQuest}>Select Quest</button>
+                    <Star threestar={threestar} twostar={twostar} onestar={onestar}></Star>
+                    <div className="button-div">
+                    <button className="quest-button" style={{backgroundColor: color2}} onClick={selectQuest}>Select Quest</button>
+                    </div>
                     </div>
                 ) : (
                     <></>
