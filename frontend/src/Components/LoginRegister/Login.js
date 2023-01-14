@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {  
+const Login = ( ) => {  
     let nav = useNavigate();
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -21,7 +21,8 @@ const Login = () => {
             if(response.data.length!=0){
                 const id = response.data.shift();
                 window.localStorage.setItem('token', id._id);
-                nav("/")   
+                nav("/")
+                window.location.reload(false);
             }
             else{
                 nav("/login-failed")
