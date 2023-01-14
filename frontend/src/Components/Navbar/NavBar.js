@@ -36,7 +36,7 @@ return(
                     Quests
                 </li>
             </NavLink>
-            <NavLink to="/map">
+            <NavLink to="/profile">
                 <li className="Nav__item">
                     Profile
                 </li>
