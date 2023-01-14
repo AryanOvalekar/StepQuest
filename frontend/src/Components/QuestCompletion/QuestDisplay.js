@@ -1,4 +1,5 @@
 import React from 'react'
+import "./QuestDisplay.css"
 
 const QuestDisplay = ( props ) => {
     const imageURL = props.imageURL
