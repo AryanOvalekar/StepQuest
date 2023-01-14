@@ -7,7 +7,7 @@ import Register from './Components/LoginRegister/Register';
 import NavBar from './Components/Navbar/NavBar';
 import LoginFailed from './Components/LoginRegister/LoginFailed';
 import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
-import QuestDashboard from './Components/Quests/QuestDashboard';
+import QuestDashboard from './Components/QuestDashboard/QuestDashboard';
 
 function App() {
 
