@@ -1,27 +1,28 @@
 import React, { useEffect } from 'react'
 import { NavLink } from "react-router-dom";
+import "./NavBar.css"
 
 const NavBar = () => {
     
     const userToken = window.localStorage.getItem("token")===null
 
 return(
-    <div>
+    <div className="NavBar">
         {userToken ? (
         <ul>
             <NavLink to="/">
                 <li className="Nav__item">
-                    Home
+                    HOME
                 </li>
             </NavLink>
             <NavLink to="/login">
                 <li className="Nav__item">
-                    Login
+                    LOGIN
                 </li>
             </NavLink>
             <NavLink to="/register">
                 <li className="Nav__item">
-                    Register
+                    REGISTER
                 </li>
             </NavLink>
         </ul> ) : (<ul>

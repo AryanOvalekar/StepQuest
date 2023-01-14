@@ -32,11 +32,16 @@ const Register = () => {
         <div class="login-form" onSubmit={submitRegister}>
             <form>
                 <h1>SIGN UP</h1>
-                    <input className = "login-element" type='username' placeholder = 'Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
-                    <input className = "login-element" type='email' placeholder = 'Email Address' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <input className = "login-element" type='password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                
-                    <input className = "login-misc-3" type = 'submit' value =  'SIGN UP'></input>
+                    <div class="input-field">
+                        <input className = "login-element" type='username' placeholder = 'Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    </div>
+                    <div class="input-field">
+                        <input className = "login-element" type='email' placeholder = 'Email Address' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    </div>
+                    <div class="input-field">
+                        <input className = "login-element" type='password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    </div>
+                    <input className = "login-button" type = 'submit' value =  'SIGN UP'></input>
             </form>
         </div>
     )

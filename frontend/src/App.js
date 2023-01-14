@@ -5,7 +5,8 @@ import Login from './Components/LoginRegister/Login';
 import Homepage from './Components/Homepage/Homepage';
 import Register from './Components/LoginRegister/Register';
 import NavBar from './Components/Navbar/NavBar';
-import { useState } from 'react';
+import LoginFailed from './Components/LoginRegister/LoginFailed';
+import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
 
 function App() {
 
@@ -18,8 +19,10 @@ function App() {
       <Route path="/" element={ <Homepage/> }/>
 
       <Route path="/login" element={ <Login/> }/>
+      <Route path="/login-failed" element={ <LoginFailed/> }/>
 
       <Route path="/register" element={ <Register/> }/>
+      <Route path="/registration-failed" element={ <RegistrationFailed/> }/>
 
     </Routes>
     </Router>

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.NavBar{
+  position:absolute;
+  width: 100%;
+}
+
+.Nav__item {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 30;
+  font-weight: bold;
+  display: inline;
+  float: center;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+    
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 25px;
+  display:  inline-block;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
