@@ -14,6 +14,8 @@ const QuestCard = ( props ) => {
     const description = props.description;
     const imageURL = props.imageURL;
     const color = props.color
+    const color2 = props.color2
+    const color3 = props.color3
     const onestar = props.onestar
     const twostar = props.twostar
     const threestar = props.threestar
@@ -41,7 +43,7 @@ const QuestCard = ( props ) => {
     }
 
     return (
-        <div onClick={onClick} className='cardbody' style={{backgroundColor: color, height: height}}>
+        <div onClick={onClick} className='cardbody' style={{color: color3, backgroundColor: color, height: height}}>
             <img className='cardimg'src={imageURL}/>
             <div className='cardcontent'>
                 <h2 className='cardtitle'>{title}</h2>
@@ -54,7 +56,7 @@ const QuestCard = ( props ) => {
                     ⭐⭐<Star time = {twostar}></Star>
                     ⭐<Star time = {onestar}></Star>
                     <div className="button-div">
-                    <button className="quest-button" style={{color: color}} onClick={selectQuest}>Select Quest</button>
+                    <button className="quest-button" style={{backgroundColor: color2}} onClick={selectQuest}>Select Quest</button>
                     </div>
                     </div>
                 ) : (
