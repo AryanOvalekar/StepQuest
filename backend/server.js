@@ -68,6 +68,13 @@ app.post("/getqueststatus", async (req, res)=>{ // fetching data from frontend
     })
 }); 
 
+app.post("/getuserstatus", async (req, res)=>{ // fetching data from frontend
+    const userID = req.body.userID;
+    UserModel.findById(userID, (err, result)=>{
+        res.send(result)
+    })
+}); 
+
 app.post("/getquestdetails", async (req, res)=>{ // fetching data from frontend
     const questID = req.body.questID;
     QuestModel.findById(questID, (err, result)=>{
