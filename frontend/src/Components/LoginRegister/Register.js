@@ -14,7 +14,7 @@ const Register = () => {
     const submitRegister = (event) => {
         event.preventDefault();
         
-        axios.post(SERVER_URL, {
+        axios.post(SERVER_URL+"/register", {
             username:username,
             password:password,
             email:email,

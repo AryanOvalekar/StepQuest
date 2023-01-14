@@ -7,6 +7,7 @@ import Register from './Components/LoginRegister/Register';
 import NavBar from './Components/Navbar/NavBar';
 import LoginFailed from './Components/LoginRegister/LoginFailed';
 import RegistrationFailed from './Components/LoginRegister/RegistrationFailed';
+import QuestDashboard from './Components/Quests/QuestDashboard';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
 
       <Route path="/register" element={ <Register/> }/>
       <Route path="/registration-failed" element={ <RegistrationFailed/> }/>
+
+      <Route path="/quests" element={ <QuestDashboard/> }/>
 
     </Routes>
     </Router>
