@@ -32,7 +32,7 @@ const Register = () => {
         <body className="login-body">
         <div class="login-form" onSubmit={submitRegister}>
             <form>
-                <h1>SIGN UP</h1>
+                <h1 className="login-header">SIGN UP</h1>
                     <div class="input-field">
                         <input className = "login-element" type='username' placeholder = 'Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
                     </div>

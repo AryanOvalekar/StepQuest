@@ -33,14 +33,16 @@ const Login = ( ) => {
         <body className="login-body">
         <div class="login-form" onSubmit={submitLogin}>
             <form>
-                <h1>LOGIN</h1>
+                <h1 className="login-header">LOGIN</h1>
                     <div class="input-field">
                         <input className = "login-element" type='email' placeholder = 'Email Address' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div class="input-field">
                     <input className = "login-element" type='password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    <input className = "login-button" type = 'submit' value =  'LOGIN'></input>
+                    <div class="login-button-div">
+                        <input className = "login-button" type = 'submit' value =  'LOGIN'></input>
+                    </div>
             </form>
         </div>
         </body>
