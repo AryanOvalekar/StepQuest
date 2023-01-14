@@ -1,0 +1,36 @@
+.homepage-body {
+    background-image: url('../../Assets/homepagebg.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-size: 2.5rem;
+}
+
+.group{
+    text-align: center;
+}
+
+.allign {
+    width: 1000px;
+    margin: 0 0 0 -500px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+  }
+
+
+
+.title.a{
+    font-family: "Inter", sans-serif;
+    
+    font-weight: 600;
+    color: #A95ED3
+}
+
+.title.b{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: #000000
+}
