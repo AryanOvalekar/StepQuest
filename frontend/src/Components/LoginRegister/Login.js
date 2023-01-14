@@ -3,11 +3,13 @@ import { useState } from 'react';
 
 const Login = () => {  
 
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submitLogin = (event) => {
-        console.log("Logged in!")
+        console.log(SERVER_URL)
 
         //ADD AXIOS METHOD
     }
