@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./QuestCard.css"
 import Star from './Star';
+import axios from "axios"
 
 const QuestCard = ( props ) => {
     const [expand, setExpand] = useState(false);
@@ -17,6 +18,9 @@ const QuestCard = ( props ) => {
     const twostar = props.twostar
     const threestar = props.threestar
 
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    const token = window.localStorage.getItem("token")
+
     const onClick = () => {
         setExpand(!expand)
         if (height === "150px"){
@@ -28,7 +32,12 @@ const QuestCard = ( props ) => {
     }
 
     const selectQuest = () => {
-        console.log(id)
+        console.log(window.localStorage.getItem("token"))
+
+        axios.post(SERVER_URL+"/addquest", {
+            userID: token,
+            questID: id,
+        })
     }
 
     return (

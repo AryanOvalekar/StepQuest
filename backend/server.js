@@ -38,7 +38,7 @@ app.post ('/register', async(req, res) =>{
     res.send("Registered New User");
 })
 
-app.post("/fetchquests", async (req, res) =>{  //check if an account exists
+app.post("/fetchquests", async (req, res) =>{
     const email = req.body.email;
     const password = req.body.password;
     QuestModel.find((err, result)=>{
@@ -52,6 +52,12 @@ app.post("/fetchquests", async (req, res) =>{  //check if an account exists
             res.send("Cannot Send Quests")
         }
     })
+})
+
+app.post ('/addquest', async(req, res) =>{
+    const userID = req.body.userID;
+    const questID = req.body.questID;
+    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: new Date()})
 })
 
 const title = "Journey through the Himalayas"
