@@ -5,7 +5,7 @@ import axios from "axios"
 
 const QuestCard = ( props ) => {
     const [expand, setExpand] = useState(false);
-    const [height, setHeight] = useState("150px");
+    const [height, setHeight] = useState("200px");
 
     const id = props.id;
     const title = props.title;
@@ -23,11 +23,11 @@ const QuestCard = ( props ) => {
 
     const onClick = () => {
         setExpand(!expand)
-        if (height === "150px"){
-            setHeight("200px");
+        if (height === "200px"){
+            setHeight("400px");
         }
         else{
-            setHeight("150px");
+            setHeight("200px");
         }
     }
 
@@ -44,16 +44,18 @@ const QuestCard = ( props ) => {
         <div onClick={onClick} className='cardbody' style={{backgroundColor: color, height: height}}>
             <img className='cardimg'src={imageURL}/>
             <div className='cardcontent'>
-                <h1 className='cardtitle'>{title}</h1>
+                <h2 className='cardtitle'>{title}</h2>
                 <h3 className='cardsubtitle'>Difficulty: {difficulty}</h3>
                 <h3 className='cardsubtitle'>Length: {length}</h3>
                 <p className='carddescription'>{description}</p>
                 {expand ? (
                     <div>
-                    <Star time = {threestar}></Star>
-                    <Star time = {twostar}></Star>
-                    <Star time = {onestar}></Star>
-                    <button onClick={selectQuest}>Select Quest</button>
+                    ⭐⭐⭐<Star time = {threestar}></Star>
+                    ⭐⭐<Star time = {twostar}></Star>
+                    ⭐<Star time = {onestar}></Star>
+                    <div className="button-div">
+                    <button className="quest-button" style={{color: color}} onClick={selectQuest}>Select Quest</button>
+                    </div>
                     </div>
                 ) : (
                     <></>

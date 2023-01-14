@@ -4,7 +4,7 @@ const Star = (props) => {
     const time = props.time;
 
   return (
-    <div>
+    <div className="star-div">
         {(time===1) ? (
             <h3>1 Hour</h3>
         ) : (
