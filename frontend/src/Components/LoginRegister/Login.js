@@ -30,6 +30,7 @@ const Login = ( ) => {
     }
 
     return (
+        <body className="login-body">
         <div class="login-form" onSubmit={submitLogin}>
             <form>
                 <h1>LOGIN</h1>
@@ -42,6 +43,7 @@ const Login = ( ) => {
                     <input className = "login-button" type = 'submit' value =  'LOGIN'></input>
             </form>
         </div>
+        </body>
     )
 }
 
