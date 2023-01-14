@@ -29,6 +29,7 @@ const Register = () => {
     }
 
     return (
+        <body className="login-body">
         <div class="login-form" onSubmit={submitRegister}>
             <form>
                 <h1>SIGN UP</h1>
@@ -44,6 +45,7 @@ const Register = () => {
                     <input className = "login-button" type = 'submit' value =  'SIGN UP'></input>
             </form>
         </div>
+        </body>
     )
 }
 
