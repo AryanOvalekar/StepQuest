@@ -47,6 +47,8 @@
 
 .login-header {
   padding-top: 50px;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 4px;
 }
 
 .login-element {
