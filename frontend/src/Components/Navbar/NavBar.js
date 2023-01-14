@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     
-    const userToken = window.localStorage.getItem("token")
+    const userToken = window.localStorage.getItem("token")===null
 
-if (userToken === null){ return (
+return(
+    <div>
+        {userToken ? (
         <ul>
             <NavLink to="/">
                 <li className="Nav__item">
@@ -22,10 +24,7 @@ if (userToken === null){ return (
                     Register
                 </li>
             </NavLink>
-        </ul>
-    )}
-else{ return (
-        <ul>
+        </ul> ) : (<ul>
             <NavLink to="/">
                 <li className="Nav__item">
                     Home
@@ -41,8 +40,10 @@ else{ return (
                     Profile
                 </li>
             </NavLink>
-        </ul>
-    )}
+        </ul> 
+        )}
+    </div>
+)
 }
 
 export default NavBar

@@ -5,11 +5,14 @@ import Login from './Components/LoginRegister/Login';
 import Homepage from './Components/Homepage/Homepage';
 import Register from './Components/LoginRegister/Register';
 import NavBar from './Components/Navbar/NavBar';
+import { useState } from 'react';
 
 function App() {
+
+
   return (
     <Router>
-      <NavBar/>
+      <NavBar />
     <Routes>
 
       <Route path="/" element={ <Homepage/> }/>
