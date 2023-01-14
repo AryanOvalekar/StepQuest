@@ -5,7 +5,7 @@ import axios from "axios"
 
 const QuestCard = ( props ) => {
     const [expand, setExpand] = useState(false);
-    const [height, setHeight] = useState("200px");
+    const [height, setHeight] = useState("140px");
 
     const id = props.id;
     const title = props.title;
@@ -25,11 +25,11 @@ const QuestCard = ( props ) => {
 
     const onClick = () => {
         setExpand(!expand)
-        if (height === "200px"){
-            setHeight("400px");
+        if (height === "140px"){
+            setHeight("340px");
         }
         else{
-            setHeight("200px");
+            setHeight("140px");
         }
     }
 
@@ -46,15 +46,15 @@ const QuestCard = ( props ) => {
         <div onClick={onClick} className='cardbody' style={{color: color3, backgroundColor: color, height: height}}>
             <img className='cardimg'src={imageURL}/>
             <div className='cardcontent'>
-                <h2 className='cardtitle'>{title}</h2>
-                <h3 className='cardsubtitle'>Difficulty: {difficulty}</h3>
-                <h3 className='cardsubtitle'>Length: {length}</h3>
-                <p className='carddescription'>{description}</p>
+                <div className="main-info">
+                    <h2 className='cardtitle'>{title}</h2>
+                    <h3 className='cardsubtitle'>Difficulty: {difficulty}</h3>
+                    <h3 className='cardsubtitle'>Length: {length}</h3>
+                </div>
+                    <p className='carddescription'>{description}</p>
                 {expand ? (
                     <div>
-                    ⭐⭐⭐<Star time = {threestar}></Star>
-                    ⭐⭐<Star time = {twostar}></Star>
-                    ⭐<Star time = {onestar}></Star>
+                    <Star props={props}></Star>
                     <div className="button-div">
                     <button className="quest-button" style={{backgroundColor: color2}} onClick={selectQuest}>Select Quest</button>
                     </div>
