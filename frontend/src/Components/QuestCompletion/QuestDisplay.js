@@ -6,10 +6,10 @@ const QuestDisplay = ( props ) => {
     const description = props.description
   
     return (
-    <div>
-        <img className='QuestImage' src={imageURL}/>
-        <p className='QuestDescription'>{description}</p>
-    </div>
+        <div>
+            <img className='QuestImage' src={imageURL}/>
+            <p className='QuestDescription'>{description}</p>
+        </div>
   )
 }
 

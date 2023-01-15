@@ -30,10 +30,12 @@ const QuestCompletion = ( props ) => {
   }
   
   return (
-    <div>
-      <QuestDisplay description = {questData[questObjective].description} imageURL = {questData[questObjective].img}/>
-      <QuestProgress progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
-    </div>
+    <body className="quest-body">
+      <div>
+        <QuestDisplay description = {questData[questObjective].description} imageURL = {questData[questObjective].img}/>
+        <QuestProgress progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
+      </div>
+    </body>
   )
 }
 

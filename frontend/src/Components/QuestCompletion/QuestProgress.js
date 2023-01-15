@@ -1,10 +1,11 @@
 import React from 'react'
+import "./QuestDisplay.css"
 
 const QuestProgress = ( props ) => {
   return (
     <div>
-        <p>{props.criteriaType}</p>
-        <div>{props.progress}/{props.criteria}</div>
+        <p className='QuestDescription'>{props.criteriaType}</p>
+        <div className='QuestDescription'>{props.progress}/{props.criteria}</div>
     </div>
   )
 }
