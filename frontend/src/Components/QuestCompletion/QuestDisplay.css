@@ -2,7 +2,6 @@
 
 .QuestImage{
     width: 600px;
-    padding-top: 5%;
     margin: auto;
     display: block;
     margin-left: auto;
@@ -10,7 +9,11 @@
     border-radius: 20px;
 }
 
-h3 {
+.img-plus-desc {
+  padding-top: 5%;
+}
+
+.tutorial-txt {
     font-family: "Inter", sans-serif;
     text-align: center;
     padding-bottom: 20px;
@@ -26,13 +29,13 @@ h3 {
 }
 
 .continue-button {
-    background-color: #34bfc9;
+    background-color: #4899e3;
     border: none;
     color: #191131;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: inline;
     font-size: 16px;
     font-weight: 600;
     border-radius: 40px;
@@ -52,6 +55,36 @@ h3 {
   }
 
   .quest-body {
-    background: linear-gradient(#FFFFFF 0%, #AACBE9 100%);
     background-size: 100% 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+}
+
+.button-container {
+  display: inline-block;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.bar-container {
+  align-items: center;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+.quest-form {
+  background-color: hsla(208, 100%, 97%, 0.6);
+  align-items: center;
+  text-align: center;
+  border-radius: 40px;
+
+  width: 500px;
+  height: 450px;
+
+  position: absolute;
+  top:  15%;
+  left: 32.5%;
 }

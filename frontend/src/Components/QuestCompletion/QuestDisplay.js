@@ -2,12 +2,10 @@ import React from 'react'
 import "./QuestDisplay.css"
 
 const QuestDisplay = ( props ) => {
-    const imageURL = props.imageURL
     const description = props.description
   
     return (
-        <div>
-            <img className='QuestImage' src={imageURL}/>
+        <div className='img-plus-desc'>
             <p className='QuestDescription'>{description}</p>
         </div>
   )
