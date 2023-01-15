@@ -3,6 +3,7 @@ import Image from 'react'
 import "./Profile.css"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Profile = () => {
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
@@ -36,7 +37,10 @@ const Profile = () => {
                     <h1 className="name-text">{name}</h1>
                     <u><p className="email-text">{email}</p></u>
                     <div className="button-div">
-                        <button className='google-button'>Link to Google</button>
+                    <NavLink to="/trophies">
+                    <button className='google-button'>Trophies</button>
+                    </NavLink>
+                        
                         <button className='google-button' onClick={signOut}>Sign Out</button>
                     </div>
                     <div className='flavor-text'>
