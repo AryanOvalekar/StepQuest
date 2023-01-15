@@ -28,17 +28,17 @@ return(
         </ul> ) : (<ul>
             <NavLink to="/">
                 <li className="Nav__item">
-                    Home
+                    HOME
                 </li>
             </NavLink>
             <NavLink to="/quests">
                 <li className="Nav__item">
-                    Quests
+                    QUESTS
                 </li>
             </NavLink>
             <NavLink to="/profile">
                 <li className="Nav__item">
-                    Profile
+                    PROFILE
                 </li>
             </NavLink>
         </ul> 
