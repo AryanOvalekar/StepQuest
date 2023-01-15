@@ -29,10 +29,22 @@ const UserSchema = new mongoose.Schema({
         required: false
     },
     questTimeStarted: {
-        type: Date,
+        type: Number,
         required: false
     },
     completedQuests: [{
+        type: String,
+        required: false
+    }],
+    bronzeQuests: [{
+        type: String,
+        required: false
+    }],
+    silverQuests: [{
+        type: String,
+        required: false
+    }],
+    goldQuests: [{
         type: String,
         required: false
     }],

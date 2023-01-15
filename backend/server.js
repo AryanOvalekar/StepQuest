@@ -58,7 +58,7 @@ app.post ('/addquest', async(req, res) =>{
     const userID = req.body.userID;
     const questID = req.body.questID;
 
-    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: new Date(), currentQuestObjective: 0, currentQuestObjectiveProgress: 0})
+    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: (new Date()).getTime(), currentQuestObjective: 0, currentQuestObjectiveProgress: 0})
 })
 
 app.post("/getqueststatus", async (req, res)=>{ // fetching data from frontend
@@ -96,14 +96,22 @@ app.post ('/setobjective', async(req, res) =>{
 
 app.post ('/resetQuest', async(req, res) =>{
     const userID = req.body.userID;
-    console.log("RESET")
     await UserModel.findByIdAndUpdate(userID, {currentQuestID: null})
 })
 
-app.post ('/completeQuest', async(req, res) =>{
+app.post ('/setCompletedQuests', async(req, res) =>{
     const userID = req.body.userID;
-    console.log("RESET")
-    await UserModel.findByIdAndUpdate(userID, {completedQuests: []})
+
+    const newList = req.body.newList;
+    const newBronzeList = req.body.newBronzeList;
+    const newSilverList = req.body.newSilverList;
+    const newGoldList = req.body.newGoldList;
+    console.log(newList)
+    console.log(newBronzeList)
+    console.log(newSilverList)
+    console.log(newGoldList)
+
+    await UserModel.findByIdAndUpdate(userID, {completedQuests: newList, bronzeQuests: newBronzeList, silverQuests: newSilverList, goldQuests: newGoldList})
 })
 
 const title = "The Himalayas"

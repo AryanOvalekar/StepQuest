@@ -6,13 +6,13 @@ import QuestProgress from './QuestProgress'
 
 const QuestCompletion = ( props ) => {
   const questID = props.questData.currentQuestID
-  const startDate = props.questData.questTimeStarted
   const [questObjective, setQuestObjective] = useState(props.questData.currentQuestObjective);
 
   const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const token = window.localStorage.getItem("token")
   
   const [RquestData, setQuestData] = useState();
+  const [RquestData2, setQuestData2] = useState();
   const [isLoading, setLoading] = useState(true);
 
   const [progress, setProgress] = useState(props.questData.currentQuestObjectiveProgress);
@@ -24,7 +24,9 @@ const QuestCompletion = ( props ) => {
       questID: questID
     }).then(response => {
       const info = response.data.objectives
+      const info2 = response.data
       setQuestData(info)
+      setQuestData2(info2)
       setLoading(false)
       setMax(info.length)
     });
@@ -65,11 +67,46 @@ const QuestCompletion = ( props ) => {
   }
 
   const finishQuest = () => {
-    console.log("Quest Finished")
     axios.post(SERVER_URL+"/resetQuest", {
       userID: token,
     })
-    
+
+    axios.post(SERVER_URL+"/getuserstatus", {
+      userID: token
+    }).then(response => {
+      
+      const questList = response.data.completedQuests
+      const bronzeList = response.data.bronzeQuests
+      const silverList = response.data.silverQuests
+      const goldList = response.data.goldQuests
+      const startDate = response.data.questTimeStarted
+      const time = (((new Date).getTime() - startDate)/(1000*60*60))
+      
+      var newQuestList = questList
+      if (questList.indexOf(questID) <= -1)
+        newQuestList = [...questList,questID]
+
+      var newBronzeList = bronzeList
+      if (time < RquestData2.onestar && bronzeList.indexOf(questID) <= -1)
+        newBronzeList = [...bronzeList,questID]
+
+      var newSilverList = silverList      
+      if (time < RquestData2.twostar && silverList.indexOf(questID) <= -1)
+        newSilverList = [...silverList,questID]
+      
+      var newGoldList = goldList
+      if (time < RquestData2.threestar && goldList.indexOf(questID) <= -1)
+        newGoldList = [...goldList,questID]
+      axios.post(SERVER_URL+"/setCompletedQuests", {
+        userID: token,
+        newList: newQuestList,
+        newBronzeList: newBronzeList,
+        newSilverList: newSilverList,
+        newGoldList: newGoldList,
+      })
+
+    });
+
     window.location.reload(false);
   }
 
