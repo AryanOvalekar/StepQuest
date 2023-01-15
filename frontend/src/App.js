@@ -11,6 +11,7 @@ import Profile from './Components/Profile/Profile';
 import QuestDashboard from './Components/QuestDashboard/QuestDashboard';
 import QuestTutorial from './Components/QuestCompletion/QuestTutorial';
 import About from './Components/Homepage/About';
+import TrophyRoom from './Components/TrophyRoom/TrophyRoom';
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
       <Route path="/tutorial" element={ <QuestTutorial/> }/>
 
       <Route path="/about" element={ <About/> }/>
+
+      <Route path="/trophies" element={ <TrophyRoom/> }/>
 
     </Routes>
     </Router>
