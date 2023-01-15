@@ -1,11 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 .QuestImage{
-    width: 800px;
+    width: 600px;
+    padding-top: 5%;
+    margin: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
 }
 
-.light-grey-bar {
-    background-color: #cdcdcd
+h3 {
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
-.green-bar {
-    background-color: green;
+.tutorial-img {
+    padding-top: 5%;
+    margin: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.continue-button {
+    background-color: #34bfc9;
+    border: none;
+    color: #191131;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 40px;
+    opacity: 1;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+  }
+
+  .QuestDescription {
+    font-family: "Inter", sans-serif;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .quest-body {
+    background: linear-gradient(#FFFFFF 0%, #AACBE9 100%);
+    background-size: 100% 100%;
 }

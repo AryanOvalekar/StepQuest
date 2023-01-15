@@ -115,7 +115,7 @@ const QuestCompletion = ( props ) => {
   }
   
   return (
-    <div>
+    <body className="quest-body"><div>
       <QuestDisplay description = {RquestData[questObjective].description} imageURL = {RquestData[questObjective].img}/>
       <QuestProgress left = {minus} right = {plus} progress = {progress} criteriaType = {RquestData[questObjective].criteriaType} criteria = {RquestData[questObjective].criteria}/>
       <div>{next ? (
@@ -124,7 +124,7 @@ const QuestCompletion = ( props ) => {
         <></>
       )}</div>
       
-    </div>
+    </div></body>
   )
 }
 
