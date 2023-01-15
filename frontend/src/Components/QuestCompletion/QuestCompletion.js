@@ -115,15 +115,14 @@ const QuestCompletion = ( props ) => {
   }
   
   return (
-    <body className="quest-body"><div>
+    <body className="quest-body" style={{ backgroundImage: `url(${RquestData[questObjective].img})` }}><div className='quest-form'>
       <QuestDisplay description = {RquestData[questObjective].description} imageURL = {RquestData[questObjective].img}/>
       <QuestProgress left = {minus} right = {plus} progress = {progress} criteriaType = {RquestData[questObjective].criteriaType} criteria = {RquestData[questObjective].criteria}/>
       <div>{next ? (
-        <button onClick={nextObjective}>Next</button>
+        <button className="login-button" onClick={nextObjective}>Next</button>
       ) : (
         <></>
       )}</div>
-      
     </div></body>
   )
 }
