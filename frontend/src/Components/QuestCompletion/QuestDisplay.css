@@ -1,3 +1,11 @@
 .QuestImage{
     width: 800px;
 }
+
+.light-grey-bar {
+    background-color: #cdcdcd
+}
+
+.green-bar {
+    background-color: green;
+}

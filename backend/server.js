@@ -58,7 +58,7 @@ app.post ('/addquest', async(req, res) =>{
     const userID = req.body.userID;
     const questID = req.body.questID;
 
-    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: new Date(), currentQuestObjective: 0, currentQuestObjectiveProgress: 0})
+    await UserModel.findByIdAndUpdate(userID, { currentQuestID: questID, questTimeStarted: (new Date()).getTime(), currentQuestObjective: 0, currentQuestObjectiveProgress: 0})
 })
 
 app.post("/getqueststatus", async (req, res)=>{ // fetching data from frontend
@@ -81,6 +81,38 @@ app.post("/getquestdetails", async (req, res)=>{ // fetching data from frontend
         res.send(result)
     })
 }); 
+
+app.post ('/setprogress', async(req, res) =>{
+    const progress = req.body.progress;
+    const userID = req.body.userID;
+    await UserModel.findByIdAndUpdate(userID, {currentQuestObjectiveProgress: progress})
+})
+
+app.post ('/setobjective', async(req, res) =>{
+    const objective = req.body.objective;
+    const userID = req.body.userID;
+    await UserModel.findByIdAndUpdate(userID, {currentQuestObjective: objective})
+})
+
+app.post ('/resetQuest', async(req, res) =>{
+    const userID = req.body.userID;
+    await UserModel.findByIdAndUpdate(userID, {currentQuestID: null})
+})
+
+app.post ('/setCompletedQuests', async(req, res) =>{
+    const userID = req.body.userID;
+
+    const newList = req.body.newList;
+    const newBronzeList = req.body.newBronzeList;
+    const newSilverList = req.body.newSilverList;
+    const newGoldList = req.body.newGoldList;
+    console.log(newList)
+    console.log(newBronzeList)
+    console.log(newSilverList)
+    console.log(newGoldList)
+
+    await UserModel.findByIdAndUpdate(userID, {completedQuests: newList, bronzeQuests: newBronzeList, silverQuests: newSilverList, goldQuests: newGoldList})
+})
 
 const title = "The Himalayas"
 const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
