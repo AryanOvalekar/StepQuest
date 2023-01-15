@@ -33,8 +33,8 @@ const QuestProgress = ( props ) => {
       <p className="QuestDescription">{props.progress} / {props.criteria}</p>
       <p className="QuestDescription">{props.criteriaType}</p>
       <div className="buttonContainer">
-        <button className="login-button" onClick={props.left}>-</button>
-        <button className="login-button" onClick={props.right}>+</button>
+        <button className="quest-button" style={{ backgroundColor: "#ee953b" }} onClick={props.left}>-</button>
+        <button className="quest-button" style={{ backgroundColor: "#ee953b" }} onClick={props.right}>+</button>
       </div>
       <div className="bar-container" style={containerStyles}>
         <div style={fillerStyles}>
