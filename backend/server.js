@@ -82,6 +82,30 @@ app.post("/getquestdetails", async (req, res)=>{ // fetching data from frontend
     })
 }); 
 
+app.post ('/setprogress', async(req, res) =>{
+    const progress = req.body.progress;
+    const userID = req.body.userID;
+    await UserModel.findByIdAndUpdate(userID, {currentQuestObjectiveProgress: progress})
+})
+
+app.post ('/setobjective', async(req, res) =>{
+    const objective = req.body.objective;
+    const userID = req.body.userID;
+    await UserModel.findByIdAndUpdate(userID, {currentQuestObjective: objective})
+})
+
+app.post ('/resetQuest', async(req, res) =>{
+    const userID = req.body.userID;
+    console.log("RESET")
+    await UserModel.findByIdAndUpdate(userID, {currentQuestID: null})
+})
+
+app.post ('/completeQuest', async(req, res) =>{
+    const userID = req.body.userID;
+    console.log("RESET")
+    await UserModel.findByIdAndUpdate(userID, {completedQuests: []})
+})
+
 const title = "The Himalayas"
 const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
 const previewimg = "https://cdn.discordapp.com/attachments/1063590170319917127/1063614979716157470/samsommer-vddccTqwal8-unsplash.jpg"

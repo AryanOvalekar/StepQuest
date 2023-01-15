@@ -6,15 +6,19 @@ import QuestProgress from './QuestProgress'
 
 const QuestCompletion = ( props ) => {
   const questID = props.questData.currentQuestID
-  const questObjective = props.questData.currentQuestObjective
+  const startDate = props.questData.questTimeStarted
+  const [questObjective, setQuestObjective] = useState(props.questData.currentQuestObjective);
+
   const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+  const token = window.localStorage.getItem("token")
   
-  const [questData, setQuestData] = useState();
+  const [RquestData, setQuestData] = useState();
   const [isLoading, setLoading] = useState(true);
 
   const [progress, setProgress] = useState(props.questData.currentQuestObjectiveProgress);
   const [next, setNext] = useState()
-
+  const [max, setMax] = useState(1)
+  
   const getQuestDetails = () => {
     axios.post(SERVER_URL+"/getquestdetails", {
       questID: questID
@@ -22,28 +26,51 @@ const QuestCompletion = ( props ) => {
       const info = response.data.objectives
       setQuestData(info)
       setLoading(false)
+      setMax(info.length)
     });
   }
   useEffect(() => getQuestDetails(), []);
 
-  useEffect(() => setDBProgress(), [progress]);
+  useEffect(() => setDBObjective(), [questObjective]);
 
-  const setDBProgress = () => {
-    console.log(progress)
+  const setDBObjective = () => {
+    axios.post(SERVER_URL+"/setobjective", {
+      userID: token,
+      objective: questObjective,
+  })
   }
 
   const plus = () =>{
-    if (progress < questData[questObjective].criteria)
+    if (progress < RquestData[questObjective].criteria)
     setProgress(progress+1)
-    if(progress+1 == questData[questObjective].criteria)
+    if(progress+1 == RquestData[questObjective].criteria)
       setNext(true)
   }
 
   const minus = () =>{
     if (progress > 0)
     setProgress(progress-1)
-    if (!(progress+1 == questData[questObjective].criteria))
+    if (!(progress+1 == RquestData[questObjective].criteria))
     setNext(false)
+  }
+
+  const nextObjective = () =>{
+    if(questObjective!=(max-1)){
+      setQuestObjective(questObjective+1)
+      setProgress(0)
+      setNext(false)
+    }
+    else
+      finishQuest()
+  }
+
+  const finishQuest = () => {
+    console.log("Quest Finished")
+    axios.post(SERVER_URL+"/resetQuest", {
+      userID: token,
+    })
+    
+    window.location.reload(false);
   }
 
   if(isLoading){
@@ -52,10 +79,10 @@ const QuestCompletion = ( props ) => {
   
   return (
     <div>
-      <QuestDisplay description = {questData[questObjective].description} imageURL = {questData[questObjective].img}/>
-      <QuestProgress left = {minus} right = {plus} progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
+      <QuestDisplay description = {RquestData[questObjective].description} imageURL = {RquestData[questObjective].img}/>
+      <QuestProgress left = {minus} right = {plus} progress = {progress} criteriaType = {RquestData[questObjective].criteriaType} criteria = {RquestData[questObjective].criteria}/>
       <div>{next ? (
-        <button>Next</button>
+        <button onClick={nextObjective}>Next</button>
       ) : (
         <></>
       )}</div>

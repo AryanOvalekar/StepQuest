@@ -2,7 +2,7 @@ import React from 'react'
 
 const QuestProgress = ( props ) => {
 
-  const progress = props.progress;
+  const bar = (props.progress*100/props.criteria);
 
   const containerStyles = {
     height: 20,
@@ -14,7 +14,7 @@ const QuestProgress = ( props ) => {
 
   const fillerStyles = {
     height: '100%',
-    width: `${progress}%`,
+    width: `${bar}%`,
     backgroundColor: "#00695c",
     borderRadius: 'inherit',
     textAlign: 'right'
@@ -32,7 +32,7 @@ const QuestProgress = ( props ) => {
       <p>{props.criteriaType}</p>
       <div style={containerStyles}>
         <div style={fillerStyles}>
-          <span style={labelStyles}>{`${progress}%`}</span>
+          <span style={labelStyles}>{`${bar}%`}</span>
         </div>
       </div>
         <button onClick={props.left}>-</button>
