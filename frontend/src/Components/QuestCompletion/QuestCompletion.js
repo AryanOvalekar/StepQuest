@@ -13,6 +13,7 @@ const QuestCompletion = ( props ) => {
   const [isLoading, setLoading] = useState(true);
 
   const [progress, setProgress] = useState(props.questData.currentQuestObjectiveProgress);
+  const [next, setNext] = useState()
 
   const getQuestDetails = () => {
     axios.post(SERVER_URL+"/getquestdetails", {
@@ -25,6 +26,26 @@ const QuestCompletion = ( props ) => {
   }
   useEffect(() => getQuestDetails(), []);
 
+  useEffect(() => setDBProgress(), [progress]);
+
+  const setDBProgress = () => {
+    console.log(progress)
+  }
+
+  const plus = () =>{
+    if (progress < questData[questObjective].criteria)
+    setProgress(progress+1)
+    if(progress+1 == questData[questObjective].criteria)
+      setNext(true)
+  }
+
+  const minus = () =>{
+    if (progress > 0)
+    setProgress(progress-1)
+    if (!(progress+1 == questData[questObjective].criteria))
+    setNext(false)
+  }
+
   if(isLoading){
     return (<></>)
   }
@@ -32,7 +53,13 @@ const QuestCompletion = ( props ) => {
   return (
     <div>
       <QuestDisplay description = {questData[questObjective].description} imageURL = {questData[questObjective].img}/>
-      <QuestProgress progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
+      <QuestProgress left = {minus} right = {plus} progress = {progress} criteriaType = {questData[questObjective].criteriaType} criteria = {questData[questObjective].criteria}/>
+      <div>{next ? (
+        <button>Next</button>
+      ) : (
+        <></>
+      )}</div>
+      
     </div>
   )
 }

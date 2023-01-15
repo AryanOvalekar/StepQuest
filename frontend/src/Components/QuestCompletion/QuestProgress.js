@@ -5,6 +5,8 @@ const QuestProgress = ( props ) => {
     <div>
         <p>{props.criteriaType}</p>
         <div>{props.progress}/{props.criteria}</div>
+        <button onClick={props.left}>-</button>
+        <button onClick={props.right}>+</button>
     </div>
   )
 }
